@@ -80,8 +80,4 @@ nucleobrown/
 ```
 
 ## Limitations
-
-Linear chains only (no branching in the decay sequence); independent nuclei; no recoil of the emitting nucleus and no
-correlation between the kicks of a single decay (α + γ are two independent kicks); the data for real
-chains (`rn222`) are pedagogical orders of magnitude.
-The asymptotic D formula assumes secular equilibrium: choose `t_max` to span several lifetimes of the chain.
+blablabla
