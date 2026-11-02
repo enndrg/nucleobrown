@@ -81,3 +81,6 @@ nucleobrown/
 
 ## Limitations
 blablabla
+
+## Outlook
+The idea is to, in the end, implement a similar code to utilize the "Quantum aspect" of Quantum computing, to compare such an approach to one based on physical decay.
