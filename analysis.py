@@ -59,20 +59,20 @@ def bootstrap_fits(r2, t, mask, dim, n_boot, rng):
 
 
 def tamsd(pos: np.ndarray, lag: int) -> np.ndarray:
-    """MSD moyenné en temps (grille régulière) pour chaque trajectoire, (M,)"""
+    #MSD moyenné en temps (grille régulière) pour chaque trajectoire, (M,)
     d = pos[:, lag:, :] - pos[:, :-lag, :]
     return np.mean(np.sum(d * d, axis=-1), axis=1)
 
 
 def vacf(vel: np.ndarray, max_lag: int, start: int = 0) -> np.ndarray:
-    """corela6 des vitesses, moyennée sur trajectoires et origines."""
+    #corela6 des vitesses, moyennée sur trajectoires et origines
     v = vel[:, start:, :]
     n = v.shape[1]
     return np.array([np.mean(np.sum(v[:, : n - l, :] * v[:, l:, :], axis=-1)) for l in range(max_lag + 1)])
 
 
 def non_gaussian_parameter(r2: np.ndarray, dim: int) -> np.ndarray:
-    """alpha2 = d <r^4> / ((d+2) <r^2>^2) - 1 ."""
+    #alpha2 = d <r^4> / ((d+2) <r^2>^2) - 1 
     m2 = r2.mean(axis=0)
     m4 = (r2**2).mean(axis=0)
     with np.errstate(divide="ignore", invalid="ignore"):
@@ -82,7 +82,7 @@ def non_gaussian_parameter(r2: np.ndarray, dim: int) -> np.ndarray:
 
 
 def fano_per_interval(primary: np.ndarray):
-    """Facteur de Fano (variance/moyenne) des énumération par intervalle de grille."""
+    #Facteur de Fano (variance/moyenne) des énumération par intervalle de grille
     dn = np.diff(primary, axis=1).astype(float)
     mean = dn.mean(axis=0)
     var = dn.var(axis=0, ddof=1)
