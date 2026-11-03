@@ -1,0 +1,25 @@
+Propagation exacte de la particule test entre les événements.
+
+Équation de Langevin avec chocs impulsionnels (processus de bruit poissonnien) :
+
+    m dv = -m*gamma*v dt + sqrt(2 m*gamma kT) dW + sum_j p_j delta(t - t_j) dt
+    dx   = v dt
+
+Entre deux instants consécutifs, la solution est connue exactement
+(processus d'Ornstein-Uhlenbeck intégré) : aucune erreur de discrétisation,
+quel que soit l'écart temporel entre événements. Toute la trajectoire se
+calcule sans boucle Python sur les événements :
+
+* bruit thermique : tiré en bloc, la loi du couple (bruit sur v, bruit sur x)
+  ne dépend que de l'intervalle ``dt`` ;
+* récurrence ``v_k = e^{-gamma dt_k} v_{k-1} + u_k`` : résolue par somme
+  cumulée pondérée, par blocs pour éviter tout dépassement numérique ;
+* position : somme cumulée.
+
+Deux régimes :
+
+* ``underdamped`` : inertie complète (v est une variable d'état) ;
+* ``overdamped``  : limite sur-amortie ; un choc d'impulsion ``p`` déplace
+  instantanément la particule de ``p / (m*gamma)``, le bruit thermique est un
+  mouvement brownien classique de coefficient ``kT / (m*gamma)``.
+

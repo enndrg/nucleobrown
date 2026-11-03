@@ -1,0 +1,8 @@
+Isotopes et chaînes de désintégration (linéaire).
+
+Une chaîne est une suite d'isotopes qui se désintègrent successivement :
+le noyau fils de l'étage ``s`` est l'isotope de l'étage ``s + 1``. Le fils du
+dernier isotope est considéré comme stable à l'échelle de la simulation.
+
+Les valeurs des chaînes « réelles » sont des ordres de grandeur à but
+pédagogique, pas des données nucléaires de référence.
