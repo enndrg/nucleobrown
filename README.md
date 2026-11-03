@@ -1,4 +1,4 @@
-# nucleobrown
+# nucleobrown - WORK IN PROGRESS, PROOF OF CONCEPT
 Python project that simulates Brownian motion driven by radioactive decay.
 
 Each decay (α, β, γ) transfers a momentum kick in a random isotropic direction to the particle. The sum of these random kicks produces, at large scales, Brownian motion. This goes beyond a plain random walk: this project models decay chains, a viscous medium with inertia and thermal noise, and validates the simulation against theoretical results.
