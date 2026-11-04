@@ -24,7 +24,7 @@ pytest                                                         # 30 tests
 Outputs of `run`: `report.json` (all numerical results), `ensemble.npz` (raw data),
 `config.json`, and the figures `trajectory`, `msd`, `distributions`, `activity` (+ `vacf` with inertia).
 
-## The model
+## Model
 
 **Source.** N nuclei (`batch` mode) or a Poisson source of rate R (`continuous` mode, stationary regime).
 Each nucleus goes through a chain `A → B → C…`; each stage waits for an exponentially distributed time set by its half-life `T1/2`.
